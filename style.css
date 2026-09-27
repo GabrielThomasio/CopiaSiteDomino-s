@@ -1,0 +1,359 @@
+/* ==========================================================
+   VARIÁVEIS DE COR (CSS Custom Properties)
+   Centralizam as cores da marca em um só lugar. Se precisar
+   ajustar um tom de azul/vermelho, muda só aqui.
+   ========================================================== */
+:root {
+  --azul-dominos: #0072ce;
+  --vermelho-dominos: #e31837;
+  --vermelho-hover: #c21530;
+  --cinza-claro: #f5f5f5;
+  --cinza-borda: #dddddd;
+  --preto-texto: #222222;
+  --branco: #ffffff;
+  --fonte-padrao: Arial, Helvetica, sans-serif;
+}
+ 
+/* ==========================================================
+   RESET BÁSICO
+   Remove margem/padding padrão do navegador e faz bordas e
+   paddings entrarem no tamanho total do elemento (box-sizing),
+   evitando dor de cabeça na hora de alinhar tudo depois.
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: var(--fonte-padrao);
+  color: var(--preto-texto);
+  background-color: var(--branco);
+  line-height: 1.4;
+}
+ 
+/* ==========================================================
+   HEADER
+   Seletor por ID: só existe UM header nessa página, então
+   faz sentido usar # em vez de classe.
+   Mobile first: aqui embaixo o header já "quebra linha"
+   sozinho (flex-wrap) pra caber em telas pequenas.
+   ========================================================== */
+#header-principal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--azul-dominos);
+  padding: 12px 16px;
+}
+ 
+#header-principal h1 img {
+  height: 32px;
+  display: block;
+}
+ 
+/* Seletor DESCENDENTE: essa regra só afeta a lista (ul) que
+   está dentro do nav, que está dentro do header — não afeta
+   nenhuma outra lista da página. */
+#header-principal nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+ 
+#header-principal nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+ 
+/* Seletor de PSEUDO-CLASSE: só é aplicado quando o mouse
+   está em cima do link (interação do usuário). */
+#header-principal nav a:hover {
+  color: var(--cinza-claro);
+}
+ 
+.botao-acompanhar {
+  background-color: var(--vermelho-dominos);
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+ 
+.botao-acompanhar:hover {
+  background-color: var(--vermelho-hover);
+}
+ 
+.area-usuario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+ 
+.area-usuario a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+ 
+.area-usuario img {
+  height: 22px;
+  display: block;
+}
+ 
+/* ==========================================================
+   BARRA DE LOCALIZAÇÃO
+   ========================================================== */
+.barra-localizacao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+ 
+.barra-localizacao img {
+  height: 16px;
+}
+ 
+.barra-localizacao a {
+  color: var(--azul-dominos);
+  text-decoration: none;
+  font-size: 14px;
+}
+ 
+/* ==========================================================
+   CARTÃO DE LOGIN (tela-de-login)
+   Seletor de CLASSE. Centralizado com margin auto + max-width,
+   funciona em qualquer largura de tela desde o começo.
+   ========================================================== */
+.tela-de-login {
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 24px 20px;
+  text-align: center;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px;
+}
+ 
+.tela-de-login > img,
+.tela-de-login > a > img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+ 
+.tela-de-login h2 {
+  color: var(--vermelho-dominos);
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+ 
+.tela-de-login h3 {
+  color: var(--azul-dominos);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+ 
+/* ==========================================================
+   BOTÕES
+   .botao = estilos compartilhados (tamanho, formato)
+   .botao-vermelho / .botao-branco = só a cor muda
+   ========================================================== */
+.botao {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+ 
+.botao-vermelho {
+  background-color: var(--vermelho-dominos);
+  color: var(--branco);
+}
+ 
+.botao-vermelho:hover {
+  background-color: var(--vermelho-hover);
+}
+ 
+.botao-branco {
+  background-color: var(--branco);
+  color: var(--azul-dominos);
+  border-color: var(--azul-dominos);
+}
+ 
+.botao-branco:hover {
+  background-color: var(--cinza-claro);
+}
+ 
+/* ==========================================================
+   DIVISOR "Faça login com"
+   ::before e ::after desenham as linhas dos lados sem
+   precisar de nenhuma tag extra no HTML.
+   ========================================================== */
+.divisor {
+  display: flex;
+  align-items: center;
+  color: #888888;
+  font-size: 13px;
+  margin: 16px 0;
+}
+ 
+.divisor::before,
+.divisor::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--cinza-borda);
+}
+ 
+.divisor::before {
+  margin-right: 10px;
+}
+ 
+.divisor::after {
+  margin-left: 10px;
+}
+ 
+/* ==========================================================
+   ÍCONES DE LOGIN SOCIAL
+   ========================================================== */
+.tipos-de-login {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+ 
+.tipos-de-login img {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--cinza-borda);
+  padding: 8px;
+}
+ 
+/* ==========================================================
+   FORMULÁRIO (tela de e-mail/senha)
+   ========================================================== */
+form {
+  text-align: left;
+  margin-bottom: 16px;
+}
+ 
+form label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+ 
+form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  font-size: 15px;
+}
+ 
+form input:focus {
+  outline: none;
+  border-color: var(--azul-dominos);
+}
+ 
+.link-senha {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: var(--vermelho-dominos);
+  text-decoration: underline;
+}
+ 
+/* ==========================================================
+   RODAPÉ DE PERSONALIZAÇÃO (critério 1.5)
+   ========================================================== */
+.rodape-pessoal {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: #888888;
+  border-top: 1px solid var(--cinza-borda);
+}
+ 
+/* ==========================================================
+   MEDIA QUERY — MOBILE FIRST
+   Tudo acima funciona sozinho em telas pequenas, sem
+   nenhuma media query. A partir de 768px (tablets/desktop),
+   ajustamos o header pra não quebrar linha.
+   ========================================================== */
+@media (min-width: 768px) {
+  #header-principal {
+    flex-wrap: nowrap;
+  }
+ 
+  .tela-de-login {
+    margin: 50px auto;
+  }
+}
+ 
+/* ==========================================================
+   MODAL "LOGIN COM CÓDIGO" (login-codigo.html)
+   Simula a sobreposição cinza + cartão branco usando só CSS,
+   sem JavaScript, já que é uma página estática separada.
+   ========================================================== */
+.fundo-modal {
+  background-color: #888888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+ 
+.modal-codigo {
+  position: relative;
+  background-color: var(--branco);
+  max-width: 400px;
+  width: 100%;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  text-align: center;
+}
+ 
+.modal-codigo h2 {
+  color: var(--azul-dominos);
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+ 
+/* Seletor de PSEUDO-CLASSE de novo: muda de cor no hover */
+.botao-fechar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  color: var(--preto-texto);
+  text-decoration: none;
+  line-height: 1;
+}
+ 
+.botao-fechar:hover {
+  color: var(--vermelho-dominos);
+}
